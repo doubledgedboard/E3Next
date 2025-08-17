@@ -409,7 +409,7 @@ namespace E3Core.Processors
 						CurrentMercName = nameOfMerc;
 						PubServer.AddTopicMessage("${Mercenary.CleanName}", CurrentMercName);
 					}
-					bool IsMoving = MQ.Query<bool>("${Me.Moving}");
+					IsMoving = MQ.Query<bool>("${Me.Moving}");
 					if (IsMoving)
 					{
 						LastMovementTimeStamp = Core.StopWatch.ElapsedMilliseconds;
@@ -575,6 +575,7 @@ namespace E3Core.Processors
         public static int CurrentId;
 		[ExposedData("Core", "LastMovementTimeStamp")]
         public static Int64 LastMovementTimeStamp;
+		public static bool IsMoving = false;
         public static string CurrentLongClassString;
         public static string CurrentShortClassString;
 		public static System.Random Random = new System.Random();
